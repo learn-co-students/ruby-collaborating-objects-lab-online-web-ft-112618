@@ -9,7 +9,6 @@ class MP3Importer
   
   def files
     @all_songs = Dir.entries(path).each {|file|}
-    #binding.pry
     @all_songs = @all_songs.sort[2..-1]
       
   end 
@@ -17,7 +16,6 @@ class MP3Importer
   def import
     files.each do |file|
       Song.new_by_filename(file)
-      #binding.pry
     end
   end 
 end
