@@ -10,7 +10,8 @@ class MP3Importer
   def files
     @all_songs = Dir.entries(path).each {|file|}
     @all_songs = @all_songs.sort[2..-1]
-      
+  
+    #Dir.entries(@path).select {|file| file.include?(".mp3")}      #added by lesson help
   end 
   
   def import

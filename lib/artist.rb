@@ -23,14 +23,14 @@ class Artist
   end 
   
   def self.find_or_create_by_name(name)
-      if self.all.find do |data| 
-        data.name == name 
-        #binding.pry
-        end
+    existing_artist = self.all.find { |artist| artist.name == name }
+      if existing_artist
+        existing_artist
       else
-        new_song = self.new(name)
-        new_song
+        name = Artist.new(name)
         #binding.pry
+        name.save
+        name
       end 
   end 
   
